@@ -7,11 +7,12 @@
 \usepackage[namelimits,sumlimits]{amsmath}
 \usepackage{amsfonts,amssymb}
 \usepackage{graphicx}
-\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+
 %\usepackage{hyperref}
 \usepackage{fancyhdr}
 % \usepackage{courier}
-\usepackage{url}
+
 \usepackage[hmargin=2cm,vmargin=3cm,headheight=1cm]{geometry}
 \usepackage{array}
 \usepackage{dirtree}
@@ -19,8 +20,11 @@
 \usepackage{ok_abrv}
 \usepackage{ecn_common}
 \usepackage{titling}
-
+\usepackage[colorlinks = true,linkcolor = blue,linkbordercolor=red,
+            urlcolor  = blue,
+            citecolor = blue]{hyperref}
 \author{O. Kermorgant}
+
 
 
 % Encadrements

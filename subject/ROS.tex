@@ -4,6 +4,8 @@
 \topic{Robot Operating System}
 \author{G. Garcia, O. Kermorgant}
 
+\newcommand{\link}[2]
+{{\href{#1}{\color{blue}\underline{{#2}}}}}
 
 
 \newcommand{\ttt}[1]
@@ -27,10 +29,10 @@ own computer, assuming that you have a working ROS installation.
 Computers from the lab room at ECN should be already set up. If you want to install ROS on your own,
 you can find several ways to do so, depending on your motivation:
 \begin{itemize}
- \item Go to \url{www.ros.org} and follow the tutorials by your own.
- \item Download the Virtual Machine at \url{http://www.irccyn.ec-nantes.fr/\~kermorga/coding\%20tools.html\#vm}. This VM corresponds
+ \item Go to \link{www.ros.org}{ROS website} and follow the tutorials by your own.
+ \item Download the Virtual Machine \link{http://www.irccyn.ec-nantes.fr/\~kermorga/coding\%20tools.html\#vm}{on my webpage}. This VM corresponds
  more or less to the ECN computers. 
- \item If you have an Ubuntu, go to \url{http://www.irccyn.ec-nantes.fr/\~kermorga/coding%20tools.html\#scripts} where you 
+ \item If you have an Ubuntu, go to \link{http://www.irccyn.ec-nantes.fr/\~kermorga/coding\%20tools.html\#scripts}{my webpage} where you 
  can find several helper scripts to install ROS, setup your profile and install V-REP, a simulator
  that is used for some labs. 
 \end{itemize}
@@ -73,7 +75,7 @@ The actual compilation is done through \ttt{cmake} and \ttt{make} but {\tt{catki
 
 As we saw during C++ labs, an IDE such as Qt Creator is pretty useful. For ROS it will be even more as ROS uses many classes and the IDE will give you autocompletion 
 and hints for their methods. 
-A guide on how to use Qt Creator with ROS is available at \url{http://www.irccyn.ec-nantes.fr/~kermorga/coding%20tools.html#config}.\\
+A guide on how to use Qt Creator with ROS is available  \link{http://www.irccyn.ec-nantes.fr/~kermorga/coding\%20tools.html\#config}{on my webpage}.\\
 
 Do not forget to launch Qt Creator from the command line (\ttt{qtcreator}) or use the desktop shortcut that simulates a console launch.\\
 
