@@ -1,0 +1,99 @@
+\documentclass{ecnreport}
+
+\stud{CORO / Option Robotique}
+\topic{Robot Operating System}
+\author{G. Garcia, O. Kermorgant}
+
+
+
+\newcommand{\ttt}[1]
+{
+{\tt{#1}}
+}
+
+
+\begin{document}
+
+\inserttitle{Robot Operating System}
+
+\section*{Content of the labs}
+
+The goal of these labs is to discover several of the aspects of using and programming with ROS. 
+There are 4 labs that will deal about increasing complexity of the ROS ecosystem. Most of the labs can be done on your 
+own computer, assuming that you have a working ROS installation. 
+
+\subsection*{Setting up the computer}
+
+Computers from the lab room at ECN should be already set up. If you want to install ROS on your own,
+you can find several ways to do so, depending on your motivation:
+\begin{itemize}
+ \item Go to \url{www.ros.org} and follow the tutorials by your own.
+ \item Download the Virtual Machine at \url{http://www.irccyn.ec-nantes.fr/\~kermorga/coding\%20tools.html\#vm}. This VM corresponds
+ more or less to the ECN computers. 
+ \item If you have an Ubuntu, go to \url{http://www.irccyn.ec-nantes.fr/\~kermorga/coding%20tools.html\#scripts} where you 
+ can find several helper scripts to install ROS, setup your profile and install V-REP, a simulator
+ that is used for some labs. 
+\end{itemize}
+
+At ECN, we assume the \ttt{ROS} workspace is located at \ttt{\textasciitilde/ros}. Most of the official tutorials use \ttt{\textasciitilde/catkin\_ws} or something similar
+but we think a simple \ttt{ros} folder is quite explicit. 
+The directory tree is thus:
+\begin{center}\begin{minipage}{.4\linewidth}
+ \dirtree{%
+.1 home.
+.2 Documents.
+.2 Downloads.
+.2 ros.
+.3 build.
+.3 devel.
+.3 src.
+.4 some\_package.
+.5 CMakeLists.txt.
+.4 some\_other\_package.
+.5 CMakeLists.txt.
+} \end{minipage}
+\end{center}
+
+If you decide to use another workspace path, adapt the command lines accordingly.
+
+
+\subsection*{How to compile}
+
+The main tool used to compile ROS packages is called \ttt{catkin}. Basically, calling \ttt{catkin build} will crawl through
+all your packages and resolve the dependency tree. It will then compile first the independant packages, then the others. 
+The actual compilation is done through \ttt{cmake} and \ttt{make} but {\tt{catkin}} use them automatically.
+
+\begin{center}\fbox{\parbox{\textwidth}{%
+ You have to call \ttt{catkin build} each time you have a new package, either because you downloaded one in your workspace
+ or because you manually created one.}}
+\end{center}
+
+
+\subsection*{How to use QtCreator with ROS}
+
+As we saw during C++ labs, an IDE such as Qt Creator is pretty useful. For ROS it will be even more as ROS uses many classes and the IDE will give you autocompletion 
+and hints for their methods. 
+A guide on how to use Qt Creator with ROS is available at \url{http://www.irccyn.ec-nantes.fr/~kermorga/coding%20tools.html#config}.\\
+
+Do not forget to launch Qt Creator from the command line (\ttt{qtcreator}) or use the desktop shortcut that simulates a console launch.\\
+
+Once \ttt{catkin build} is called, remember that the \ttt{build} directory of a given package called \ttt{package\_name} is at \ttt{\textasciitilde/ros/build/package\_name}.\\
+
+ECN computers and the Virtual Machine are configured to compile in Debug mode by default, which helps the bug hunt.
+
+\newpage
+
+\section{Lab 1 - launchfiles, remaps and gui tools}
+
+\section{Lab 2 - package creation, dependencies and topics}
+
+\section{Lab 3 - transforms and services}
+
+\section{Lab 4 - working with images}
+
+
+
+
+
+
+\end{document}

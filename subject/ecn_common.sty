@@ -1,0 +1,87 @@
+% common display stuff between articles and slides
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+
+% some colors
+% cold harbor theme
+\definecolor{black}{RGB}{0,0,0}
+\definecolor{kaki}{RGB}{64,84,66}
+\definecolor{ardoise}{RGB}{46,54,61}
+\definecolor{water}{RGB}{94,137,148}
+\definecolor{sand}{RGB}{252,231,194}
+\definecolor{footlineECN}{RGB}{2,140,172}
+\definecolor{footlineLab}{RGB}{0, 114, 216 }
+\definecolor{headlinecolor}{RGB}{10,73,148}
+
+\newcommand{\ts}{\textsuperscript}
+
+
+
+% old theme
+\definecolor{darkgreen}{rgb}{0,0.2,0}
+\definecolor{darkheadline}{rgb}{0,0.,0.25}
+\definecolor{darkpurple}{rgb}{0.25,0.,0.25}
+% \definecolor{darkorange}{RGB}{210,110,0}
+\definecolor{darkorange}{RGB}{230,50,0}
+\definecolor{acajou}{RGB}{90,35,2}
+\definecolor{watergreen}{rgb}{.59,.85,.61}
+\definecolor{watergreenlight}{rgb}{.64,.90,.66}
+\definecolor{watergreenlighter}{rgb}{.69,.95,.71}
+
+
+\def\tab{{\color{white}{np}}}
+
+
+% default style
+\def\defaultstyle
+{
+\lstset{frame = single,
+%numbers=left,
+%numberstyle=\scriptsize,
+%numbersep=-8pt,  
+showstringspaces=false,
+                basicstyle=\ttfamily\scriptsize,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{darkgreen}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#},
+                framexleftmargin=1pt
+}
+}
+
+
+% Python code
+\def\pythonstyle
+{
+\lstset{language=Python,
+frame = single,
+%numbers=left,
+%numberstyle=\scriptsize,
+%numbersep=-8pt,  
+showstringspaces=false,
+                basicstyle=\ttfamily\scriptsize,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{darkgreen}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#},
+                framexleftmargin=1pt,upquote=true
+}
+}
+
+
+% C++ code
+\def\cppstyle
+{
+\lstset{language=C++,
+frame = single,
+showstringspaces=false,
+                basicstyle=\ttfamily\scriptsize,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{darkgreen}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#},
+                framexleftmargin=1pt,upquote=true
+}
+}
