@@ -70,8 +70,36 @@ Two packages are included in this lab:
    \item \texttt{decr\_key} for the increment key (default -, ASCII code 45)
   \end{itemize}
  \end{itemize}
-
 \end{itemize}
+
+\section{Using launch files}
+
+Tutorials on how to use launch files can be found on internet. These files allow running several nodes in a single command.
+
+Create a launch file to control two of the joints of the Baxter robot (1 \texttt{capture\_key\_node} + 2 \texttt{move\_joint\_node}), according to the table
+and your group number. The contributions of all groups will allow controlling most of the joints. 
+
+\subsection{First launch file attempt}
+
+For this launch; the \texttt{<node ... /node>} sections should be minimal: no node renaming, no remapping.
+
+\begin{itemize}
+ \item What happens when this is launched from only one computer?
+ \item What happens when this is launched from several computers?
+ \item Coordinate with other groups to have nodes with different names.
+ \item Coordinate with other groups to have nodes in different namespaces (use the \texttt{group} tag).
+\end{itemize}
+
+\subsection{Second launch file attempt}
+
+What is the behavior of the current launch file? Explain how to solve the issue (at this point poor Baxter has not moved yet).
+
+\subsection{Third launch file attempt}
+
+Now modify the launch file so that topics are remapped and Baxter actually moves accordingly to each group's typed keys.
+
+
+ 
 
 
 
