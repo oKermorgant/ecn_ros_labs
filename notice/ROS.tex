@@ -1,6 +1,6 @@
 \documentclass{ecnreport}
 
-\stud{CORO / Option Robotique}
+\stud{Master 1 CORO / Option Robotique}
 \topic{Robot Operating System}
 \author{G. Garcia, O. Kermorgant}
 
@@ -26,13 +26,13 @@ own computer, assuming that you have a working ROS installation.
 
 \subsection*{Setting up the computer}
 
-Computers from the lab room at ECN should be already set up. If you want to install ROS on your own,
-you can find several ways to do so, depending on your motivation:
+Computers from the lab room at ECN should be already set up. If you want to install ROS on your computer,
+here are several ways to do so, depending on your motivation:
 \begin{itemize}
- \item Go to \link{www.ros.org}{ROS website} and follow the tutorials by your own.
- \item Download the Virtual Machine \link{http://www.irccyn.ec-nantes.fr/\~kermorga/coding\%20tools.html\#vm}{on my webpage}. This VM corresponds
- more or less to the ECN computers. 
- \item If you have an Ubuntu, go to \link{http://www.irccyn.ec-nantes.fr/\~kermorga/coding\%20tools.html\#scripts}{my webpage} where you 
+ \item Go to \link{www.ros.org}{ROS website} and follow the tutorials on your own.
+ \item Download the Virtual Machine \link{http://pagesperso.ls2n.fr/\~kermorgant-o/coding\%20tools.html\#vm}{on my webpage}. This VM corresponds
+ more or less to the ECN computers and ships with V-REP.
+ \item If you have an Ubuntu, go to \link{http://pagesperso.ls2n.fr/~kermorgant-o/coding\%20tools.html\#scripts}{my webpage} where you 
  can find several helper scripts to install ROS, setup your profile and install V-REP, a simulator
  that is used for some labs. 
 \end{itemize}
@@ -75,7 +75,7 @@ The actual compilation is done through \ttt{cmake} and \ttt{make} but {\tt{catki
 
 As we saw during C++ labs, an IDE such as Qt Creator is pretty useful. For ROS it will be even more as ROS uses many classes and the IDE will give you autocompletion 
 and hints for their methods. 
-A guide on how to use Qt Creator with ROS is available  \link{http://www.irccyn.ec-nantes.fr/~kermorga/coding\%20tools.html\#config}{on my webpage}.\\
+A guide on how to use Qt Creator with ROS is available  \link{http://pagesperso.ls2n.fr/~kermorgant-o/coding\%20tools.html\#config}{on my webpage}.\\
 
 Do not forget to launch Qt Creator from the command line (\ttt{qtcreator}) or use the desktop shortcut that simulates a console launch.\\
 
@@ -83,16 +83,37 @@ Once \ttt{catkin build} is called, remember that the \ttt{build} directory of a 
 
 ECN computers and the Virtual Machine are configured to compile in Debug mode by default, which helps the bug hunt.
 
-\newpage
+\subsection*{Downloading the labs and ECN ROS package}
 
-\section{Lab 1 - launchfiles, remaps and gui tools}
+Packages are downloaded through the \ttt{git} tool. They have to be downloaded in the \ttt{\textasciitilde/ros/src} directory or sub-directory. To do so, launch a console and go to this directory: 
+\ttt{cd \textasciitilde/ros/src} .\\
 
-\section{Lab 2 - package creation, dependencies and topics}
-
-\section{Lab 3 - transforms and services}
-
-\section{Lab 4 - working with images}
-
+The packages to be downloaded are all in a single git repository, including this pdf file\\ \ttt{git clone git@github.com:oKermorgant/ecn\_ros\_labs.git}
+You should have the following tree afterwards:
+\begin{center}\begin{minipage}{.4\linewidth}
+ \dirtree{%
+.1 home.
+.2 ros.
+.3 build.
+.3 devel.
+.3 src.
+.4 ecn\_ros\_labs.
+} \end{minipage}
+\end{center}
+Now go to the ROS workspace or any sub-directory of \ttt{src} and type: \ttt{catkin build}.\\ You can then use Qt Creator (which is useless for the 1st lab).
+% 
+% \newpage
+% 
+% \section{Lab 1 - launchfiles, remaps and gui tools}
+% 
+% 
+% 
+% \section{Lab 2 - package creation, dependencies and topics}
+% 
+% \section{Lab 3 - transforms and services}
+% 
+% \section{Lab 4 - working with images}
+% 
 
 
 
