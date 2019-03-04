@@ -66,8 +66,7 @@ int main(int argc, char** argv)
     // initialize the node
     ros::init(argc, argv, "my_node");
 
-    // define a group name
-    ecn::TokenHandle token(group_name);
+    ecn::TokenHandle token();
     // this class instance will return only when Baxter is available
     
     // initialize other variables
@@ -96,8 +95,7 @@ from ecn_common.token_handle import TokenHandle
 # initialize the node
 rospy.init_node('my_node')
 
-# define a group name
-token = TokenHandle(group_name)
+token = TokenHandle()
 # this class instance will return only when Baxter is available
 
 #initialize other variables

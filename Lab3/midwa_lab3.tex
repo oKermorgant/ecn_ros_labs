@@ -26,9 +26,6 @@ One way to obtain the desired behavior of the `` puppet hand '' is to attach an 
 right hand of the Baxter robot at the position and orientation where we wish to move the reference
 frame of the left hand.
 
-In order to set the goal pose of the left arm the `` tf broadcaster '' broadcasts the transformation
-between the new frame and the base frame of the Baxter robot.
-
 The controller node is a `` tf listener '': it monitors the position and orientation of the target with
 respect to the base frame of the robot and calls a service (Baxter inverse kinematics service) to
 calculate the joint positions which allows reaching the goal when sending a \texttt{joint\_command}
@@ -41,21 +38,33 @@ pose.
 
 \subsection{Informations}
 
-Tutorials can be found online about \emph{tf listeners} and \emph{tf broadcasters}.
+Tutorials can be found online about \emph{transform listeners} and \emph{transform broadcasters} (use the \texttt{tf2} fashion).
 
 You will also need to use the Baxter Inverse Kinematic Service. The corresponding service is defined as \texttt{baxter\_core\_msgs/SolvePositionIK}. You can 
 use \texttt{rossrv show} to get the request / response structure of this service. Tutorials also exist on how to define a service client in C++ and Python.
+This IK service expects a desired transform between the \texttt{base} and \texttt{left\_gripper} frames to find the corresponding joint positions.
+
+\subsection{Using \texttt{tf2}}
+
+TF is a standard topic to broadcast all frame transforms in the current setup. It also allows any node to retrieve the transform between any two links, as it stored the past broadcasted transforms. Instead of using classical publisher/subscriber, custom ones are available that work only on the \texttt{/tf} topic and only for 3D-transforms messages.
+
+The \texttt{tf2\_ros} package includes two ways to broadcast a transform between two links:
+\begin{itemize}
+	\item From C++ or Python code: use the provided \texttt{tf2\_ros/transform\_publisher}, this is usually used to broadcast non-constant transforms
+	\item A full node, \texttt{static\_transform\_broadcaster} that will publish a passed constant transform. This uses less bandwidth but the transform cannot be changed afterwards.
+\end{itemize}
+
+In this lab, the static transform broadcaster should be used from a launch file to publish the transform between the right gripper and the desired left gripper pose.
 
 \subsection{Tasks}
 
 \begin{itemize}
-\item Define the nodes and topics that your application will use. 
- \item Create a ROS package (\texttt{catkin create pkg}) with dependencies on \texttt{baxter\_core\_msgs}, 
- \texttt{sensor\_msgs} and \texttt{ecn\_common}
- \item Draw the expected graph of the application. 
- \item Program the node in C++ and/or Python
- \item Write a launch file that runs your node. 
- \end{itemize}
+	\item Define the nodes and topics that your application will use. 
+	\item Use the ROS package from lab2 but add a depencendy to \texttt{tf2\_ros}
+	\item Draw the expected graph of the application. 
+	\item Program the node in C++ and/or Python
+	\item Write a launch file that runs your node and the static transform broadcaster
+\end{itemize}
  
  \subsection{Avoiding conflicts between controllers}
  
@@ -73,8 +82,7 @@ int main(int argc, char** argv)
     // initialize the node
     ros::init(argc, argv, "my_node");
 
-    // define a group name
-    ecn::TokenHandle token(group_name);
+    ecn::TokenHandle token();
     // this class instance will return only when Baxter is available
     
     // initialize other variables
@@ -103,8 +111,7 @@ from ecn_common.token_handle import TokenHandle
 # initialize the node
 rospy.init_node('my_node')
 
-# define a group name
-token = TokenHandle(group_name)
+token = TokenHandle()
 # this class instance will return only when Baxter is available
 
 #initialize other variables

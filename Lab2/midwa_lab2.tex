@@ -32,12 +32,13 @@ value of the other arm.
 
 \begin{itemize}
 \item Identify the topics that the node should subscribe and publish to.
- \item Create a ROS package (\texttt{catkin create pkg}) with dependencies on \texttt{baxter\_core\_msgs}, 
+ \item Create a ROS package (\texttt{catkin create pkg <name> --catkin-deps <dependencies>}) with dependencies on \texttt{baxter\_core\_msgs}, 
  \texttt{sensor\_msgs} and \texttt{ecn\_common}
  \item Draw the expected graph of the application. 
  \item Program the node in C++ and/or Python
- \item Write a launch file that runs your node. 
  \end{itemize}
+
+Once the package is created, feel free to use the provided \texttt{lab2\_mirror.cpp} file as a template for the node code.
  
  \subsection{Avoiding conflicts between controllers}
  
@@ -55,8 +56,7 @@ int main(int argc, char** argv)
     // initialize the node
     ros::init(argc, argv, "my_node");
 
-    // define a group name
-    ecn::TokenHandle token(group_name);
+    ecn::TokenHandle token();
     // this class instance will return only when Baxter is available
     
     // initialize other variables
@@ -85,8 +85,7 @@ from ecn_common.token_handle import TokenHandle
 # initialize the node
 rospy.init_node('my_node')
 
-# define a group name
-token = TokenHandle(group_name)
+token = TokenHandle()
 # this class instance will return only when Baxter is available
 
 #initialize other variables

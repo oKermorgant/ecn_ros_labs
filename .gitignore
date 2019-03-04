@@ -67,3 +67,4 @@ Thumbs.db
 *.tex.backup
 
 !.gitignore
+*.48-pre1
